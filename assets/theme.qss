@@ -1,0 +1,2 @@
+/* Keep the platform's native light/dark appearance.
+   Application-specific styling can be added here without changing Python UI code. */

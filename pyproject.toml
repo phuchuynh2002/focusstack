@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "focusstack"
+version = "3.0.0"
+description = "Focus stacking CLI and desktop application"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24", "opencv-python>=4.8", "scipy>=1.10", "Pillow>=10", "tifffile>=2023.7", "imagecodecs>=2023.9", "rawpy>=0.19"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+desktop = ["PySide6>=6.6,<7", "pyinstaller>=6,<7"]
+
+[project.scripts]
+focusstack = "focus_stacker.cli:main"
+focusstack-app = "focus_stacker.main:main"
+
+[project.gui-scripts]
+focus-stacker = "focus_stacker.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.setuptools.data-files]
+"share/focusstack/assets" = ["assets/theme.qss"]
